@@ -1,5 +1,14 @@
+var charEscape = function(_html) {
+  var newHTML = _html;
+
+  newHTML = _html.replace(/</g, "&lt;");
+  newHTML = newHTML.replace(/>/g, "&gt;");
+
+  return newHTML;
+};
+
 var bio = {
-  "name" : "kenner",
+  "name" : "santana kenner",
   "role" : "Full Stack Web Developer",
   "contacts" : {
     "mobile" : "347-661-3311",
@@ -13,29 +22,50 @@ var bio = {
     "Back-End", "Front-End", "Alogos", "Cloud", "Start-ups"
   ],
   "bioPic" : "images/kennerlogo.jpeg"
-}
+};
 
 var work = {
   "jobs": [
     {
       "employer": "Google",
       "title": "Front-End Ninja",
-      "dates": "2009-present",
+      "location": "Mountain View, CA",
+      "dates": "month 2009 - Current",
       "description": "I program programs that program programs"
     },
     {
       "employer": "Liquid Talent",
       "title": "Web Developer",
-      "dates": "2014-2015",
+      "location": "New York, NY",
+      "dates": "month 2014 - month 2015",
       "description": "Design and develop flagship product (freelancer marketplace) and associaed web/mobile properties"
     },
     {
       "employer": "Jokket",
       "title": "Web Developer",
-      "dates": "2014-2015",
+      "location": "Washington, DC",
+      "dates": "month 2014 - month 2015",
       "description": "Design and develop flagship product (freelancer marketplace) and associaed web/mobile properties"
+    },
+    {
+      "employer": "iGotITtoo",
+      "title": "Co-Founder",
+      "location": "Brooklyn, NY",
+      "dates": "month 2009 - Current",
+      "description": "I program programs that help the underserved leverage technology."
     }
   ]
+};
+
+function locationizer(work_obj) {
+  var locationArray = [];
+
+  for (job in work_obj.jobs) {
+    var newLocation = work_obj.jobs[job].location;
+    locationArray.push(newLocation);
+  }
+
+  return locationArray;
 }
 
 // var work = {};
@@ -71,9 +101,9 @@ var work = {
 // }
 
 var education = {};
-education["name"] = "Udacity";
-education["years"] = "2014-2015";
-education["city"] = "New York, NY, US";
+education.name = "Udacity";
+education.years = "2014-2015";
+education.city = "New York, NY, US";
 
 // var projects = {
 //   "projects": [
@@ -128,26 +158,104 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
   formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
   $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
+  $("#skills").append(formattedSkill);
 }
 
-for (job in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
+function displayWork() {
+  for (job in work.jobs) {
+    // create a new div for work experience
+    $("#workExperience").append(HTMLworkStart);
+    // concat employer and title
+    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var formattedEmployerTitle = formattedWorkEmployer + formattedTitle;
+    $(".work-entry:last").append(formattedEmployerTitle);
 
-  var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  var formattedEmployerTitle = formattedWorkEmployer + formattedTitle;
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    $(".work-entry:last").append(formattedDates);
 
-  $(".work-entry:last").append(formattedEmployerTitle);
-
-  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-  $(".work-entry:last").append(formattedDates);
-
-  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-  $(".work-entry:last").append(formattedDescription);
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+  }
 }
 
+displayWork();
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x,y);
+});
+
+function inName(name) {
+  name = bio.name.trim().split(" ");
+  console.log(name);
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+  return name[0] + " " + name[1];
+}
+
+$('#main').append(internationalizeButton);
 /// ** EXAMPLES ** ///////////
 
+// function feedCat() {
+//     console.log("kibble, tinned food and water");
+// }
+
+// function batheCat() {
+//     console.log("tub, soap and water");
+// }
+
+// var dailyChores = [feedCat,batheCat];
+
+// console.log(feedCat instanceof Object);
+
+// feedCat.food = "kibble";
+// console.log(feedCat.food);
+// console.log(feedCat.constructor);
+
+// batheCat.soap = "ivory";
+// console.log(batheCat.soap);
+// console.log(batheCat.constructor);
+
+// var eveningChore = feedCat;eveningChore();
+// console.log(eveningChore);
+
+// function doEveningChores(chores) {
+//     for(var x = 0; x < chores.length; x++)
+//         chores[x]();
+// }
+
+// doEveningChores(dailyChores);
+
+// function tonightChores() {
+//     return dailyChores;
+// }
+
+// var tonight = tonightChores();
+// console.log(tonight);
+
+// var tyler = {};
+// tyler.job = "lunatic";
+
+// var makeCourse = function(){
+//   // make a course
+//   console.log("Made a course");
+// }
+
+// var courses = 0;
+// while(tyler.job === "lunatic") {
+//   makeCourse();
+//   courses = courses + 1;
+//   if(courses === 10) {
+//     tyler.job = "liberator";
+//   }
+// }
+
+//console.log(tyler.job);
 // var countries = [ "Germany", "Argentina", "Brazil", "Netherlands"];
 // for (country in countries) { console.log(countries[country]) }
 
