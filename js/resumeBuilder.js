@@ -201,9 +201,123 @@ function inName(name) {
 $('#main').append(internationalizeButton);
 /// ** EXAMPLES ** ///////////
 
-function destroyDeathStar() {
-  console.log("stay on target, stay on target");
-}
+
+// function Pet(name, species, hello) {
+//   this.name = name;
+//   this.species = species;
+//   this.hello = hello;
+//   this.sayHello = function() {
+//     console.log(this.hello);
+//   }
+// }
+
+// var rufus = new Pet("Rufus", "cat", "miaow");
+// console.log(rufus.constructor.toString());
+
+// var pets = [];
+// pets.push(new Pet("Rufus", "cat", "miaow"));
+// pets.push(new Pet("Casper", "bird", "squark!"));
+// pets.push(new Pet("Sabby", "dog", "woof"));
+
+// for(var x=0; x<pets.length; x++) {
+//   console.log(pets[x].name + " is a " + pets[x].species);
+//   pets[x].sayHello();
+//   console.log(pets[x].constructor.toString());
+// }
+
+// var onTheMoon = true;
+
+// var thingsToDoToday = function flyToTheMoon() {
+//   if(!onTheMoon)
+//     flyToTheMoon();
+//   else
+//     console.log("1 small step ..");
+// }
+// thingsToDoToday();
+
+// for(var x=0; x<=900; x++) {
+//   var myFunction = function() {
+//     console.log("when " + x + " years old .. u will not.");
+//   }
+//   myFunction();
+// }
+
+// var skywalker = "luke skywalker"
+// // var skywalker = "someone else"
+
+// var chooseSide;
+
+// if(skywalker === "luke skywalker") {
+//   chooseSide = function() {
+//     return "jedi";
+//   }
+// }
+// else {
+//   chooseSide = function() {
+//     return "sith";
+//   }
+// }
+// alert(chooseSide());
+
+// $(document).ready(function() {
+//   console.log("page has loaded.");
+// });
+
+// function itIsATrap(theTrap) {
+//   theTrap();
+// }
+
+// itIsATrap(function() { console.log("many have died for this info"); });
+
+// var toDoToday = [
+//   function() { console.log("shortie storm trooper?") },
+//   function() { console.log("boring") }
+// ];
+// for(var x=0; x<toDoToday.length; x++) {
+//   toDoToday[x];
+// }
+
+// var jabbaTheHut = {
+//   laugh : function() { console.log("hoes!"); }
+// }
+// jabbaTheHut.laugh();
+
+// function destroyDeathStar() {
+//   console.log("stay on target, stay on target");
+// }
+// destroyDeathStar();
+
+// var destroyDeathStar2 = function() {
+//   console.log("stay on target, stay on target");
+// }
+// destroyDeathStar2();
+
+// var destroyDeathStar;
+// var pilot = "luke skywalker"
+// // var pilot = "someone else"
+
+// if(pilot === "luke skywalker") {
+//   destroyDeathStar = function() {
+//     console.log("may the force be with u");
+//   }
+// }
+// else {
+//   destroyDeathStar = function() {
+//     console.log("gold 5 to red leader, lost tiree, lost dutch");
+//   }
+// }
+// destroyDeathStar();
+
+// var destroyDeathStar = function() {
+//   console.log("stay on target, stay on target");
+// }
+// destroyDeathStar();
+
+// destroyDeathStar();
+
+// function destroyDeathStar() {
+//   console.log("stay on target, stay on target");
+// }
 
 // var ArrayUtil = {
 //   contains : function(array, element) {
