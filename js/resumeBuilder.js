@@ -201,6 +201,164 @@ function inName(name) {
 $('#main').append(internationalizeButton);
 /// ** EXAMPLES ** ///////////
 
+function destroyDeathStar() {
+  console.log("stay on target, stay on target");
+}
+
+// var ArrayUtil = {
+//   contains : function(array, element) {
+//     for(var x=0; x<array.length; x++) {
+//       if(array[x] == element)
+//         return true;
+//     }
+//     return false;
+//   },
+//   exclude : function(list, items) {
+//     //
+//   },
+//   makeList : function(list) {
+
+//   }
+// }
+
+// var list = ["A", "B", "C"];
+// console.log("Has A? " + ArrayUtil.contains(list, "A"));
+
+// var navigationElement = {};
+
+// this.fireElement({element: navigationElement, state : "active"});
+
+// function onNavigationStateChange(e) {
+//   // do something
+//   console.log(e.element.id + " is " + e.state);
+// }
+
+// var sabby = {
+//   name : "Sabby",
+//   species : "cat",
+//   hello : function() { console.log("hisses"); }
+// };
+
+// console.log(sabby.name + " is a " + sabby.species);
+// sabby.hello();
+
+// var empty1 = {};
+// var empty2 = new Object();
+
+
+
+// var casper = new Object();
+// casper["name"] = "casper";
+// casper["species"] = "bird";
+// casper["hello"] = function() { console.log("squark! squark!") }
+
+// console.log(casper.name + " is a " + casper.species);
+// casper.hello();
+
+// var rufus = new Object();
+// rufus.name = "rufus";
+// rufus.species = "cat";
+// rufus.hello = function() {console.log("miaow"); }
+
+// for(var property in rufus)
+//   console.log(rufus[property].toString());
+
+// var myObject = {
+//   property1: "chocolate",
+//   property2: "cake",
+//   property3: "brownies"
+// }
+
+// for(var x=1; x<4;x++)
+//   console.log(myObject["property" + x]);
+
+// console.log(rufus.name + " is a " + rufus.species);
+// rufus.hello();
+
+// var sabby = {
+//   name: "Sabby",
+//   species: "cat",
+//   hello : function() { console.log("hisses"); }
+// };
+
+// // var chocolateBars = [
+// //   {name: "Galaxy", manufacturer: "Mars"},
+// //   {name: "Snickers", manufacturer: "Mars"},
+// //   {name: "Crunchie", manufacturer: "Cadbury"},
+// //   {name: "Aero", manufacturer: "Nestle"},
+// //   {name: "M&Ms", manufacturer: "Mars"},
+// //   {name: "Chunky", manufacturer: "Nestle"},
+// //   {name: "Double Decker", manufacturer: "Cadbury"}
+// //   ]
+
+// var childrenOfTheWorld = [
+//   {name: "George", naughtiness: 1},
+//   {name: "Sam", naughtiness: 5},
+//   {name: "Chris", naughtiness: 2},
+//   {name: "Adam", naughtiness: 6},
+//   {name: "Michie", naughtiness: 3},
+//   {name: "Clarissa", naughtiness: 7},
+//   {name: "Denise", naughtiness: 4}
+//   ]
+
+// // var marsChocolate = [];
+
+// // for(var x = 0; x < chocolateBars.length; x++) {
+// //   if(chocolateBars[x].manufacturer === "Mars")
+// //     marsChocolate.push(chocolateBars[x]);
+// // }
+
+// // for(var x = 0; x < marsChocolate.length; x++) {
+// //   console.log(marsChocolate[x].name);
+// // }
+
+// var array_helper = {
+//   filter: function(list, filter) {
+//     var matches = [];
+
+//     for(var x = 0; x < list.length; x++) {
+//       if(filter(list[x]))
+//         matches.push(list[x]);
+//     }
+//     return matches;
+//   }
+// };
+
+// // var marsChocolate2 = array_helper.filter(chocolateBars,
+// //   function(item) {
+// //     return item.manufacturer === "Mars"
+// //   });
+
+// var naughtyList = array_helper.filter(childrenOfTheWorld,
+//   function(item) {
+//     return item.naughtiness > 4;
+//   });
+
+// var niceList = array_helper.filter(childrenOfTheWorld,
+//   function(item) {
+//     return item.naughtiness <= 4;
+//   });
+
+// console.log(naughtyList);
+// console.log(niceList);
+
+
+//  var chocolateBars = [
+//   {name: "Galaxy", manufacturer: "Mars"},
+//   {name: "Hershey", manufacturer: "Hershey"},
+//   {name: "Twix", manufacturer: "Mars"}
+//   ];
+
+// var marsChocolate = [];
+// for(var x = 0; x < chocolateBars.length; x++) {
+//   console.log(chocolateBars[x]);
+
+//   if(chocolateBars[x].manufacturer == "Mars")
+//     marsChocolate.push(chocolateBars[x]);
+// };
+
+// console.log(marsChocolate);
+
 // function feedCat() {
 //     console.log("kibble, tinned food and water");
 // }
