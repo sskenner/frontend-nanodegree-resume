@@ -90,32 +90,32 @@ function locationizer(work_obj) {
 // work.employer = "Jokket";
 // work.years = 0.3;
 
-// var education = {
-//   "schools": [
-//     {
-//       "name": "University of Pittsburgh",
-//       "cityState": "Pittsburgh, PA",
-//       "degree": "BS",
-//       "majors": ["Electrical Engineering"],
-//       "dates": xx,
-//       "url": "https://www.pitt.edu"
-//     }
-//   ],
-//   "onlineCoureses": [
-//     {
-//       "title": "Front-End Web Developer Nanodegree",
-//       "school": "Udacity",
-//       "dates": [2014, 2015],
-//       "url": "https://www.udacity.com/"
-//     },
-//     {
-//       "title": "**Production Ready Ruby on Rails",
-//       "school": "Tealeaf Academy",
-//       "dates": [2013, 2014],
-//       "url": "https://www.gotealeaf.com/"
-//     }
-//   ]
-// };
+var education = {
+  "schools": [
+    {
+      "name": "University of Pittsburgh",
+      "location": "Pittsburgh, PA",
+      "degree": "BS",
+      "majors": ["Electrical Engineering"],
+      "dates": "1993 - 1996",
+      "url": "https://www.pitt.edu"
+    }
+  ],
+  "onlineCoureses": [
+    {
+      "title": "Front-End Web Developer Nanodegree",
+      "school": "Udacity",
+      "dates": "2014 - 2015",
+      "url": "https://www.udacity.com/"
+    },
+    {
+      "title": "**Production Ready Ruby on Rails",
+      "school": "Tealeaf Academy",
+      "dates": "2013 - 2014",
+      "url": "https://www.gotealeaf.com/"
+    }
+  ]
+};
 
 // var education = {};
 // education.name = "Udacity";
@@ -211,7 +211,48 @@ projects.display = function() {
 
 projects.display();
 
+education.display = function() {
+  for (school in education.onlineCoureses) {
+    $("#education").append(HTMLschoolStart);
 
+    var formattedName = HTMLschoolName.replace("%data%", education.onlineCoureses[school].school);
+    $("#education").append(formattedName);
+
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.onlineCoureses[school].title);
+    $("#education").append(formattedDegree);
+
+    var formattedDates = HTMLschoolDates.replace("%data%", education.onlineCoureses[school].dates);
+    $("#education").append(formattedDates);
+
+// TODO: add urls
+
+    // var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+    // $("#education").append(formattedLocation);
+
+    // var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+    // $("#education").append(formattedMajor);
+  }
+  for (school in education.schools) {
+    $("#education").append(HTMLschoolStart);
+
+    var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    $("#education").append(formattedName);
+
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+    $("#education").append(formattedDegree);
+
+    var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+    $("#education").append(formattedDates);
+
+    var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+    $("#education").append(formattedLocation);
+
+    var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+    $("#education").append(formattedMajor);
+  }
+}
+
+education.display();
 
 $(document).click(function(loc) {
   var x = loc.pageX;
