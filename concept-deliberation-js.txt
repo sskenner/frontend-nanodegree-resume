@@ -1,0 +1,15 @@
+1. HTML and CSS are used to deliver the content and style to web pages. Where does JS fit in? What can JS do that HTML/CSS cannot?
+
+> JS, once commonly used as part of web browsers, implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed (i.e. is responsible for everything that changes or is animated after the website is loaded).
+
+2. What is the advantage of using functions over 'speghetti code'?
+
+> One advantage is reusability. Once a function is defined it can be reused (thus adhering to DRY) and better organized. Another advantage is abstraction. Use of the function does not require knowledge of how the function works.
+
+3. What is an API? Why is it important? What API's have been explored or planned for use?
+
+> API stands for 'application program interface'. As per wikipedia, "an API is a set of routines, protocols, and tools for building software apps." A well written API expresses software components "in terms of its operations, inputs, outputs, and types". APIs, good ones, provide all the building blocks to develop a program using the features of its respective application(s).
+
+- explored: Stripe (processing financial transactions), Mandrill (send emails), Twillio (send SMSs), Google Maps (pin and display locations)
+
+- planned: delivery.com, twitter, soundcloud

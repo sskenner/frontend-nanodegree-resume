@@ -61,15 +61,42 @@ var projects = {
   "projects": [
     {
       "title": "dlvr",
-      "dates": "2014-2015",
+      "dates": "2014 - 2015",
       "description": "Neighborhood delivery social network",
-      "images": ["images/rsz_1dlivr_android.png"]
+      "images": []
     },
     {
       "title": "another",
-      "dates": "2014-2015",
+      "dates": "2014 - 2015",
       "description": "Neighborhood delivery social network",
       "images": ["images/rsz_1dlivr_android.png"]
+    }
+  ]
+};
+
+var education = {
+  "schools": [
+    {
+      "name": "University of Pittsburgh",
+      "location": "Pittsburgh, PA",
+      "degree": "BS",
+      "majors": ["Electrical Engineering"],
+      "dates": "1993 - 1996",
+      "url": "https://www.pitt.edu"
+    }
+  ],
+  "onlineCoureses": [
+    {
+      "title": "Front-End Web Developer Nanodegree",
+      "school": "Udacity",
+      "date": 2015,
+      "url": "https://www.udacity.com/"
+    },
+    {
+      "title": "**Production Ready Ruby on Rails",
+      "school": "Tealeaf Academy",
+      "date": 2013,
+      "url": "https://www.gotealeaf.com/"
     }
   ]
 };
@@ -90,32 +117,6 @@ function locationizer(work_obj) {
 // work.employer = "Jokket";
 // work.years = 0.3;
 
-var education = {
-  "schools": [
-    {
-      "name": "University of Pittsburgh",
-      "location": "Pittsburgh, PA",
-      "degree": "BS",
-      "majors": ["Electrical Engineering"],
-      "dates": "1993 - 1996",
-      "url": "https://www.pitt.edu"
-    }
-  ],
-  "onlineCoureses": [
-    {
-      "title": "Front-End Web Developer Nanodegree",
-      "school": "Udacity",
-      "dates": "2014 - 2015",
-      "url": "https://www.udacity.com/"
-    },
-    {
-      "title": "**Production Ready Ruby on Rails",
-      "school": "Tealeaf Academy",
-      "dates": "2013 - 2014",
-      "url": "https://www.gotealeaf.com/"
-    }
-  ]
-};
 
 // var education = {};
 // education.name = "Udacity";
@@ -184,7 +185,6 @@ function displayWork() {
     $(".work-entry:last").append(formattedDescription);
   }
 }
-
 displayWork();
 
 projects.display = function() {
@@ -208,32 +208,28 @@ projects.display = function() {
     }
   }
 }
-
 projects.display();
 
 education.display = function() {
+  $("#education").append(HTMLonlineClasses);
+
   for (school in education.onlineCoureses) {
-    $("#education").append(HTMLschoolStart);
+    var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCoureses[school].title);
+    $("#education").append(formattedTitle);
 
-    var formattedName = HTMLschoolName.replace("%data%", education.onlineCoureses[school].school);
-    $("#education").append(formattedName);
+    var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCoureses[school].school);
+    $("#education").append(formattedSchool);
 
-    var formattedDegree = HTMLschoolDegree.replace("%data%", education.onlineCoureses[school].title);
-    $("#education").append(formattedDegree);
-
-    var formattedDates = HTMLschoolDates.replace("%data%", education.onlineCoureses[school].dates);
+    var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCoureses[school].date);
     $("#education").append(formattedDates);
 
-// TODO: add urls
-
-    // var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-    // $("#education").append(formattedLocation);
-
-    // var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-    // $("#education").append(formattedMajor);
+    var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCoureses[school].url);
+    $("#education").append(formattedUrl);
   }
+  $("#education").append(HTMLschoolTitle);
+
   for (school in education.schools) {
-    $("#education").append(HTMLschoolStart);
+    $("#education").prepend(HTMLschoolStart);
 
     var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
     $("#education").append(formattedName);
@@ -251,15 +247,7 @@ education.display = function() {
     $("#education").append(formattedMajor);
   }
 }
-
 education.display();
-
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x,y);
-});
 
 function inName(name) {
   name = bio.name.trim().split(" ");
