@@ -13,6 +13,7 @@ var bio = {
     "Back-End", "Front-End", "Alogos", "Cloud", "Start-ups"
   ],
   "bioPic" : "images/kennerlogo.jpeg"
+  // "bioPic" : "images/kennerlogo.jpeg"
 };
 
 var work = {
@@ -72,7 +73,7 @@ var education = {
       "location": "Pittsburgh, PA",
       "degree": "BS",
       "majors": ["Electrical Engineering"],
-      "dates": "1993 - 1996",
+      "dates": "1993 - 1996 ",
       "url": "https://www.pitt.edu"
     }
   ],
@@ -105,25 +106,25 @@ bio.display = function() {
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
   var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-  $("#header").prepend(formattedWelcomeMsg);
   $("#header").prepend(formattedRole);
   $("#header").prepend(formattedName);
-  $("#header").prepend(formattedBioPic);
+  $("#topContacts").append(formattedMobile);
+  $("#topContacts").append(formattedEmail);
+  $("#topContacts").append(formattedTwitter);
+  $("#topContacts").append(formattedGithub);
+  $("#topContacts").append(formattedLocation);
+  $("#header").append(formattedBioPic);
+  $("#header").append(formattedWelcomeMsg);
   $("#header").append(HTMLskillsStart);
-  $("#topContacts").prepend(formattedMobile);
-  $("#topContacts").prepend(formattedLocation);
-  $("#topContacts").prepend(formattedEmail);
-  $("#topContacts").prepend(formattedTwitter);
-  $("#topContacts").prepend(formattedGithub);
-  $('#footerContacts').append(formattedMobile);
-  $('#footerContacts').append(formattedEmail);
-  $('#footerContacts').append(formattedGithub);
-  $('#footerContacts').append(formattedTwitter);
-  $('#footerContacts').append(formattedLocation);
+  $("#footerContacts").append(formattedMobile);
+  $("#footerContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedGithub);
+  $("#footerContacts").append(formattedTwitter);
+  $("#footerContacts").append(formattedLocation);
 
-  for (skill in bio.skills){
+  for (skill in bio.skills) {
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-    $('#skills').append(formattedSkill);
+    $('#header').append(formattedSkill);
   }
 }
 bio.display();
@@ -138,6 +139,9 @@ function displayWork() {
     var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
     var formattedEmployerTitle = formattedWorkEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
 
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
